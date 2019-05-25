@@ -1,0 +1,109 @@
+{
+  "name": "stolenbikecase-api",
+  "private": true,
+  "version": "1.0.3",
+  "description": "HTTP API for Stolen Bike Case Project",
+  "scripts": {
+    "start": "node -r dotenv/config bin/server dotenv_config_path=env/dev",
+    "watch": "nodemon bin/server",
+    "lint": "./node_modules/.bin/tslint 'src/**/*.ts' 'tests/**/*.ts'",
+    "lint:fix": "./node_modules/.bin/tslint 'src/**/*.ts' 'tests/**/*.ts' --fix",
+    "test": "./node_modules/.bin/jest",
+    "test:coverage": "./node_modules/.bin/jest --colors --coverage",
+    "test:watch": "./node_modules/.bin/jest --colors --watch",
+    "sqlz:createdb": "./node_modules/.bin/sequelize db:create",
+    "sqlz:migrate:new": "./node_modules/.bin/sequelize migration:create --name",
+    "sqlz:migrate": "./node_modules/.bin/sequelize db:migrate",
+    "sqlz:migrate:undo": "./node_modules/.bin/sequelize db:migrate:undo",
+    "sqlz:seed:new": "./node_modules/.bin/sequelize seed:create --name",
+    "sqlz:seed": "./node_modules/.bin/sequelize db:seed:all",
+    "sqlz:seed:file": "./node_modules/.bin/sequelize db:seed --seed",
+    "sqlz:seed:undo": "./node_modules/.bin/sequelize db:seed:undo",
+    "apidocs": "./node_modules/.bin/apidoc -i src/ -o doc/"
+  },
+  "author": "faizulhaque124@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "@hapi/boom": "7.4.0",
+    "hoek": "6.1.3",
+    "continuation-local-storage": "3.2.1",
+    "dotenv": "8.0.0",
+    "@hapi/joi": "15.0.3",
+    "koa": "2.7.0",
+    "koa-body": "4.1.0",
+    "koa-bunyan-logger": "2.1.0",
+    "koa-compose": "4.1.0",
+    "koa-helmet": "4.1.0",
+    "koa-json": "2.0.2",
+    "koa-mount": "4.0.0",
+    "koa-router": "7.4.0",
+    "koa-static": "5.0.0",
+    "koa-useragent": "1.2.0",
+    "lodash": "4.17.11",
+    "mysql2": "1.6.5",
+    "request-promise-native": "1.0.7",
+    "sequelize": "4.38.0",
+    "ts-node": "8.1.0",
+    "tslint": "5.16.0",
+    "uuid": "3.3.2"
+  },
+  "devDependencies": {
+    "@types/hapi__boom": "7.4.0",
+    "@types/bunyan": "1.8.4",
+    "@types/koa-bunyan-logger": "2.1.1",
+    "@types/cheerio": "0.22.8",
+    "@types/continuation-local-storage": "3.2.1",
+    "@types/crypto-js": "3.1.41",
+    "@types/dotenv": "6.1.1",
+    "@types/jest": "23.3.0",
+    "@types/hapi__joi": "15.0.1",
+    "@types/koa": "2.0.48",
+    "@types/koa-helmet": "3.1.2",
+    "@types/koa-json": "2.0.18",
+    "@types/koa-mount": "3.0.1",
+    "@types/koa-router": "7.0.30",
+    "@types/koa-static": "4.0.0",
+    "@types/koa-useragent": "1.2.0",
+    "@types/kue": "0.11.10",
+    "@types/lodash": "4.14.112",
+    "@types/node-schedule": "1.2.2",
+    "@types/nodemailer": "4.6.2",
+    "@types/request-promise-native": "1.0.15",
+    "@types/sequelize": "4.28.1",
+    "@types/uuid": "3.4.3",
+    "apidoc": "0.17.6",
+    "husky": "1.0.0-rc.9",
+    "jest": "24.8.0",
+    "nodemon": "1.18.9",
+    "sequelize-cli": "5.4.0",
+    "ts-jest": "24.0.2",
+    "ts-list": "1.0.5",
+    "typescript": "2.9.2"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "/tests/.*\\.(ts|tsx|js)$"
+  },
+  "apidoc": {
+    "name": "Stolen Bike Case Project",
+    "version": "0.1.0",
+    "description": "Stolen Bike Case Project apiDoc",
+    "url": "https://domain/api/v1",
+    "sampleUrl": "https://domain/api/v1",
+    "apidoc": {
+      "title": "Stolen Bike Case Project apiDoc"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  }
+}

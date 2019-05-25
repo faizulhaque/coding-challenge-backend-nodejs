@@ -1,0 +1,53 @@
+version: "3"
+
+services:
+  app:
+    container_name: stolenBikeCase-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+        - mysql
+    env_file:
+      - env/development
+      - env/development.secrets
+    volumes:
+      - "./src:/app/src"
+      - "./lib:/app/lib"
+      - "./logs:/app/logs"
+      - "./database:/app/database"
+    ports:
+      - 4000:4000
+      - 5858:5858
+    entrypoint:
+      - ./entrypoint.sh
+      - ./node_modules/.bin/nodemon
+      - ./bin/server
+
+  mysql:
+    image: mysql:5.7.22
+    command: ['--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
+    container_name: stolenBikeCase-db
+    volumes:
+      - "mysql:/var/lib/mysql"
+    ports:
+      - 3307:3306
+    expose:
+      - 3307
+    env_file:
+      - env/development
+      
+  phpmyadmin:
+      image: phpmyadmin/phpmyadmin
+      environment:
+          - MYSQL_ROOT_PASSWORD=root
+          - PMA_USER=stolenBikeCase
+          - PMA_PASSWORD=stolenBikeCase
+          - PMA_HOST=mysql
+      depends_on:
+        - mysql
+      ports:
+        - 8888:80
+
+volumes:
+  mysql:
