@@ -9,9 +9,10 @@ const router = new Router({
 });
 
 /**
- * @api       {post} /case/:id/resolved Post
+ * @api       {post} /case/:id/resolved Resolve Case
  * @apiName   Resolved Case
  * @apiGroup  Case
+ * @apiVersion 1.0.0
  * @apiParam  {Number} id Case Id
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK

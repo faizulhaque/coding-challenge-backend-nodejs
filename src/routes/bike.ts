@@ -10,9 +10,10 @@ const router = new Router({
 });
 
 /**
- * @api       {post} /bike/report Post
+ * @api       {post} /bike/report Report Stolen Bike
  * @apiName   Report Stolen Bike
  * @apiGroup  Bike
+ * @apiVersion 1.0.0
  * @apiParam  {String} fullName Name of bike owner
  * @apiParam  {String} licenseNumber licenseNumber of bike
  * @apiParam  {String} color color of stolen bike
@@ -45,9 +46,10 @@ const router = new Router({
 router.post('/report', report);
 
 /**
- * @api       {get} /bike Search
+ * @api       {get} /bike Search Stolen Bike
  * @apiName   Search Stolen Bike
  * @apiGroup  Bike
+ * @apiVersion 1.0.0
  * @apiParam  {String} fullName Name of bike owner
  * @apiParam  {String} licenseNumber licenseNumber of bike
  * @apiParam  {String} color color of stolen bike

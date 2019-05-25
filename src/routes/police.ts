@@ -10,9 +10,10 @@ const router = new Router({
 });
 
 /**
- * @api       {post} /police Post
+ * @api       {post} /police Add Police Officer (Increase)
  * @apiName   Add Police Officer (Increase)
  * @apiGroup  Police
+ * @apiVersion 1.0.0
  * @apiParam  {String} fullName Name of police officer
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK
@@ -44,9 +45,10 @@ const router = new Router({
 router.post('/', addPoliceOfficer);
 
 /**
- * @api       {post} /police/:id Delete
+ * @api       {post} /police/:id Remove Police Officer (Decrease)
  * @apiName   Remove Police Officer (Decrease)
  * @apiGroup  Police
+ * @apiVersion 1.0.0
  * @apiParam  {Number} id Id of a police officer
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK

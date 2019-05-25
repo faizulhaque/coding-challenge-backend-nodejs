@@ -1,7 +1,7 @@
 {
   "name": "stolenbikecase-api",
   "private": true,
-  "version": "1.0.3",
+  "version": "1.0.0",
   "description": "HTTP API for Stolen Bike Case Project",
   "scripts": {
     "start": "node -r dotenv/config bin/server dotenv_config_path=env/dev",
